@@ -1,6 +1,26 @@
 import scala.math.min
-
 object strings  {
+
+    def getSentenceType(sentence : String) : String = {
+    
+        if(sentence.endsWith(".")) {
+            "declarative"
+        }
+        else if((sentence.endsWith("?"))) {
+            "interrogative"
+        }
+        else if((sentence.endsWith("!"))) {
+           "exclamatory"
+        }
+        else{
+            "unknown"
+     
+        }
+   
+
+}
+
+
 
 /*
 
@@ -20,12 +40,7 @@ object strings  {
    The function should return the string "interrogative", "declarative", or
    "exclamatory" for ?, ., or !; otherwise, it should return "unknown".
  */
-
-
-   def getSentenceType(sentence : String) : String = {
-     
-      "unknown"
-   }
+   
 
 /*
    Given a name as input.  Assume first and last names
@@ -40,8 +55,21 @@ object strings  {
  */
 
    def getFormattedName(name : String) : String = {
+       var fullName = ""
+       var firstPos = name.indexOf(" ")
+       var lastPos = name.indexOf(" ")
+        if (lastPos < 0){
+            fullName = name 
+        }
+     else{ 
+        var first = name.substring(0, lastPos) 
+        var last = name.substring(lastPos+1)
+         fullName = last + "," + first 
+     }
+       fullName
      
-      "name not calculated yet"
-   }
+     
+   
 
+}
 }
